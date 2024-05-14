@@ -1,4 +1,4 @@
-apiVersion: networking.k8s.io/v1
+apiVersion: networking.k8s.io/v1beta1
 kind: Ingress
 metadata:
   annotations:
@@ -8,14 +8,11 @@ metadata:
   name: jenkins-ingress
   namespace: default
 spec:
-  ingressClassName: nginx
   rules:
     - http:
         paths:
-          - path: /
-            pathType: Prefix
-            backend:
-              service:
-                name: jenkins-service
-                port:
-                  number: 8080
+          - backend:
+              serviceName: jenkins-service
+              servicePort: 8080
+              path: /
+              pathType: Prefix
