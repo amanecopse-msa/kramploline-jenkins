@@ -20,7 +20,7 @@ spec:
             - mountPath: /var/run/docker.sock
               name: docker
       volumes:
-        - name: config
+        - name: jenkins-home
           hostPath:
             path: config
         - name: docker
