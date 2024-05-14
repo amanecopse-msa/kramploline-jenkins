@@ -1,0 +1,28 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: jenkins-deployment
+spec:
+  selector:
+    matchLabels:
+      app: jenkins-deployment
+  template:
+    metadata:
+      labels:
+        app: jenkins-deployment
+    spec:
+      containers:
+        - name: jenkins-container
+          image: jenkins/jenkins:jdk17
+          volumeMounts:
+            - mountPath: /var/jenkins_home
+              name: jenkins-home
+            - mountPath: /var/run/docker.sock
+              name: docker
+      volumes:
+        - name: config
+          hostPath:
+            path: config
+        - name: docker
+          hostPath:
+            path: /var/run/docker.sock
