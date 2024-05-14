@@ -1,5 +1,6 @@
 FROM jenkins/jenkins:jdk17
 
+USER root
 VOLUME /var/run/docker.sock
 ENV TZ=Asia/Seoul
 
