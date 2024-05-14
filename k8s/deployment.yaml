@@ -13,7 +13,7 @@ spec:
     spec:
       containers:
         - name: jenkins-container
-          image: jenkins/jenkins:jdk17
+          image: krmp-d2hub-idock.9rum.cc/dev-test/repo_2f190448ce7e
           volumeMounts:
             - mountPath: /var/jenkins_home
               name: jenkins-home
